@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,24 +20,171 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUc-93-beu" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="256" y="275.5" width="88" height="48"/>
+                                <rect key="frame" x="256" y="402" width="88" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yUc-93-beu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="281-GV-9aq"/>
-                            <constraint firstItem="yUc-93-beu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bb-3D-9gG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yUc-93-beu" secondAttribute="bottom" constant="150" id="2zw-BZ-gVY"/>
+                            <constraint firstItem="yUc-93-beu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S0J-xB-oOG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fbLoginButton" destination="yUc-93-beu" id="2Ia-Ls-vfP"/>
+                        <segue destination="inJ-Ab-4ZS" kind="presentation" identifier="loginSegue" id="3UN-xz-RXm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="265" y="349"/>
+        </scene>
+        <!--登入中-->
+        <scene sceneID="Jnh-Ms-TgZ">
+            <objects>
+                <viewController storyboardIdentifier="afterLoginfbFirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eh5-ph-lEZ" customClass="afterLoginfbFirstViewController" customModule="SecoundFblogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cXB-Uk-jZS"/>
+                        <viewControllerLayoutGuide type="bottom" id="BqH-q1-gH6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NVV-fd-QG0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AbC-Z2-wil">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="9Do-kt-QDD"/>
+                                    <constraint firstAttribute="height" constant="250" id="mnC-6r-GZV"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bvc-uH-L1O" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="277" y="137" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lHq-YJ-khH">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91943687080536918" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lHq-YJ-khH" firstAttribute="centerY" secondItem="NVV-fd-QG0" secondAttribute="centerY" id="1Q8-Ak-h7M"/>
+                            <constraint firstItem="AbC-Z2-wil" firstAttribute="top" secondItem="Bvc-uH-L1O" secondAttribute="bottom" constant="8" id="Q5w-mQ-qI8"/>
+                            <constraint firstItem="Bvc-uH-L1O" firstAttribute="centerX" secondItem="NVV-fd-QG0" secondAttribute="centerX" id="jbh-WJ-83t"/>
+                            <constraint firstItem="AbC-Z2-wil" firstAttribute="centerY" secondItem="NVV-fd-QG0" secondAttribute="centerY" id="m9H-AH-FXX"/>
+                            <constraint firstItem="AbC-Z2-wil" firstAttribute="centerX" secondItem="NVV-fd-QG0" secondAttribute="centerX" id="wLv-YN-tmT"/>
+                            <constraint firstItem="lHq-YJ-khH" firstAttribute="centerX" secondItem="NVV-fd-QG0" secondAttribute="centerX" id="yS6-fd-8ke"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="登入中" id="btc-4H-0H9"/>
+                    <connections>
+                        <outlet property="activityCircle" destination="lHq-YJ-khH" id="y1n-ov-4VV"/>
+                        <outlet property="fbLogOutButton" destination="Bvc-uH-L1O" id="2Jm-4k-6sj"/>
+                        <outlet property="personPicture" destination="AbC-Z2-wil" id="hUQ-jY-EEC"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="fbLogoutSague" id="kvf-1Y-U4w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aCc-wt-lht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="349"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="FvB-yg-vVy">
+            <objects>
+                <tabBarController storyboardIdentifier="LoginTabbarcontroller" automaticallyAdjustsScrollViewInsets="NO" id="inJ-Ab-4ZS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fen-Pz-YsW">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="HnS-DV-GOV" kind="relationship" relationship="viewControllers" id="cg0-hx-8V3"/>
+                        <segue destination="eh5-ph-lEZ" kind="relationship" relationship="viewControllers" id="x8v-n5-aMb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txS-H5-s13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="349"/>
+        </scene>
+        <!--Picture-->
+        <scene sceneID="Fci-JE-5bB">
+            <objects>
+                <collectionViewController id="HnS-DV-GOV" customClass="PictureCollectionViewController" customModule="SecoundFblogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7NV-qs-Nwe" userLabel="ContentCollection View">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Lk-gl-af9">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="XKJ-p2-fZG" customClass="ImageViewCollectionViewCell" customModule="SecoundFblogin" customModuleProvider="target">
+                                <rect key="frame" x="20" y="0.0" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pUB-26-r1j">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="157"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGB-Uc-u22">
+                                            <rect key="frame" x="8" y="8" width="46" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="pGB-Uc-u22" secondAttribute="height" multiplier="2:1" id="Xkm-d9-CA2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="2" height="2"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdy-0X-rmy">
+                                            <rect key="frame" x="85" y="162" width="30" height="30"/>
+                                            <state key="normal" title="分享"/>
+                                        </button>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YOf-4h-Oyx">
+                                            <rect key="frame" x="25" y="99" width="150" height="2"/>
+                                        </progressView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="YOf-4h-Oyx" firstAttribute="leading" secondItem="XKJ-p2-fZG" secondAttribute="leadingMargin" constant="17" id="2zQ-XT-5nj"/>
+                                    <constraint firstItem="YOf-4h-Oyx" firstAttribute="centerY" secondItem="XKJ-p2-fZG" secondAttribute="centerY" id="E19-YO-u65"/>
+                                    <constraint firstItem="pUB-26-r1j" firstAttribute="top" secondItem="XKJ-p2-fZG" secondAttribute="top" id="H5V-3J-QaP"/>
+                                    <constraint firstItem="pUB-26-r1j" firstAttribute="leading" secondItem="XKJ-p2-fZG" secondAttribute="leading" id="XUy-Ki-u7h"/>
+                                    <constraint firstItem="pGB-Uc-u22" firstAttribute="top" secondItem="XKJ-p2-fZG" secondAttribute="topMargin" id="Ybk-GM-vGG"/>
+                                    <constraint firstItem="Cdy-0X-rmy" firstAttribute="centerX" secondItem="XKJ-p2-fZG" secondAttribute="centerX" id="a8N-sn-beQ"/>
+                                    <constraint firstItem="pGB-Uc-u22" firstAttribute="leading" secondItem="XKJ-p2-fZG" secondAttribute="leadingMargin" id="gK3-4c-1UN"/>
+                                    <constraint firstAttribute="trailing" secondItem="pUB-26-r1j" secondAttribute="trailing" id="hcL-QV-N8L"/>
+                                    <constraint firstItem="Cdy-0X-rmy" firstAttribute="bottom" secondItem="XKJ-p2-fZG" secondAttribute="bottomMargin" id="ltf-lI-iIh"/>
+                                    <constraint firstItem="YOf-4h-Oyx" firstAttribute="centerX" secondItem="XKJ-p2-fZG" secondAttribute="centerX" id="qA0-JU-gj5"/>
+                                    <constraint firstAttribute="bottom" secondItem="pUB-26-r1j" secondAttribute="bottom" constant="43" id="t0M-dC-2xr"/>
+                                </constraints>
+                                <size key="customSize" width="200" height="200"/>
+                                <connections>
+                                    <outlet property="imageViewOfCell" destination="pUB-26-r1j" id="xKv-Fv-BaM"/>
+                                    <outlet property="progressBar" destination="YOf-4h-Oyx" id="dgA-C1-05e"/>
+                                    <outlet property="shareButton" destination="Cdy-0X-rmy" id="rWq-g3-5cx"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="HnS-DV-GOV" id="fuS-p3-Qqx"/>
+                            <outlet property="delegate" destination="HnS-DV-GOV" id="jBP-pZ-3Jv"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Picture" id="txL-E1-Ugg"/>
+                    <navigationItem key="navigationItem" id="Yoz-Rk-Neu"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84N-sl-7n6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976" y="1037"/>
         </scene>
     </scenes>
 </document>

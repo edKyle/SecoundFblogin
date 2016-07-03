@@ -6,7 +6,8 @@ target 'SecoundFblogin' do
   use_frameworks!
 
   # Pods for SecoundFblogin
-
+pod 'SDWebImage'
 pod 'FBSDKLoginKit'
+pod 'GestureRecognizerClosures'
 
 end
